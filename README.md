@@ -1,4 +1,5 @@
-# <img src="https://uploadthingy.s3.us-west-1.amazonaws.com/5wMmHGGtHAkFGYWYsskNX7/logo_transparent_background.png" alt="WNCP AI Logo" height="60"> AI-Accelerated Product Management Companion Repository
+<img src="https://uploadthingy.s3.us-west-1.amazonaws.com/5wMmHGGtHAkFGYWYsskNX7/logo_transparent_background.png" alt="WNCP AI Logo" height="60"> 
+# AI-Accelerated Product Management Companion Repository
 
 **Workshop materials and comprehensive guides for mastering AI-accelerated product development**
 
