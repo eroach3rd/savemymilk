@@ -1,8 +1,10 @@
-# AI-Accelerated Product Management Companion Repository
+# <img src="https://uploadthingy.s3.us-west-1.amazonaws.com/5wMmHGGtHAkFGYWYsskNX7/logo_transparent_background.png" alt="WNCP AI Logo" height="60"> AI-Accelerated Product Management Companion Repository
 
-Welcome to the companion repository for the talk on **AI-Accelerated Product Management**!
+**Workshop materials and comprehensive guides for mastering AI-accelerated product development**
 
-This repository contains resources, example project details, and setup guides to help you practically apply the concepts discussed in the presentation. Our goal is to empower you to leverage Artificial Intelligence in your product management workflows for enhanced efficiency, creativity, and impact.
+Welcome to the companion repository for the **"AI-Accelerated Product Management"** talk, created by [WNCP AI](https://www.wncp.ai) in collaboration with the University of Maryland. This repository contains resources, example project details, and detailed setup guides to help you practically apply AI-accelerated product management concepts from the presentation.
+
+🚀 **[Visit WNCP AI](https://www.wncp.ai)** | 🎯 **[AI Resume Builder Example](https://github.com/wncp-ai/ai-resume-builder)** | 📚 **[WNCP Resources](https://www.wncp.ai)**
 
 ## About the Talk: "AI-Accelerated Product Management"
 
@@ -38,9 +40,19 @@ For the purpose of this talk and rapid prototyping, we focus on a **frontend-onl
 
 This simplified stack allows for quick iteration and demonstrates core AI integration without backend complexities, aligning with the "vibe coding" approach.
 
+## 🎯 Why Use This Repository
+
+This repository serves multiple purposes:
+
+- **Learn Vibe Coding:** Experience building functional applications through conversational AI development
+- **Apply CRAFT+ Framework:** Practice the Capture, Refine, Analyze, Formulate, Test workflow from the talk
+- **Hands-On Learning:** Use real code examples with AI development tools
+- **Rapid Prototyping:** Go from idea to working prototype in under 20 minutes
+- **Best Practices:** See how to structure prompts and context for AI tools
+
 ## Setting Up Your Development Environment & Building the Example
 
-You can use any AI-assisted development tool you prefer (e.g., Google's AI Studio, Firebase with Gemini, Bolt.new, Replit, VS Code with AI plugins). The key is to provide the AI with the right context (like the PRD, tech stack, and UI prompts).
+You can use any AI-assisted development tool you prefer (e.g., Google's AI Studio, Firebase with Gemini, VS Code with AI plugins). The key is to provide the AI with the right context (like the PRD, tech stack, and UI prompts).
 
 Below is a detailed guide for using **Lovable.dev**, which is excellent for chat-based, iterative development.
 
@@ -129,19 +141,89 @@ If you're not using Lovable.dev, you can adapt this process:
 *   **Google AI Studio / Vertex AI:**
     *   Use these platforms to experiment with Gemini prompts. You can take the system prompt from `docs/wire-frame-code-prompt.md` (the `systemPrompt.md` section) or from the `tech-stack.md` and refine it.
     *   Then, integrate the working API calls into your locally built Next.js application.
-*   **Replit / Bolt.new:**
+*   **Replit:**
     *   These platforms often provide integrated AI features. You can start a new Next.js project and use their AI to help build out the components and logic, feeding it the context from the `docs` files.
+
+## 📖 The Vibe Coding Philosophy
+
+Vibe coding represents a paradigm shift in how we build software. Instead of writing code line-by-line, you describe what you want in plain English, and AI translates your vision into working software. From the `vibe-coder-guide.md`:
+
+### Core Principles
+- **Think Google homepage simplicity** - No signup, no complexity, just functionality
+- **20-minute sprints** - From idea to working application in record time
+- **Frontend-only architecture** - Everything runs in the browser for instant deployment
+- **User-centric design** - Focus on solving real problems, not technical complexity
+
+### The Two-Prompt Process
+The guide outlines a simple yet powerful approach:
+1. **Prompt 1 (15 minutes)**: Build the complete UI structure and layout
+2. **Prompt 2 (5 minutes)**: Add AI functionality, interactivity, and polish
+
+This approach has been tested and refined through multiple workshops, consistently delivering working applications in under 20 minutes.
 
 ## Repository Contents
 
-*   `README.md`: This file.
+*   `README.md`: This file - your comprehensive guide to AI-accelerated product development.
 *   `docs/`:
     *   `product-requirements-doc.md`: The detailed Product Requirements Document for the AI Resume Builder, envisioning a more complete version with user accounts and Supabase.
     *   `tech-stack.md`: Describes the simplified, frontend-only architecture using LocalStorage, suitable for rapid prototyping and this workshop.
     *   `vibe-coder-guide.md`: A fun guide on the "vibe coding" development approach – rapid, intuitive, AI-assisted building.
     *   `wire-frame-code-prompt.md`: Contains the React (TypeScript) component code, CSS, and Tailwind configuration for the initial UI of the AI Resume Builder. This is intended to be used as a starting point with AI code generation tools.
+    *   `wireframe-code/`: Directory containing all the component files referenced in the prompt guide.
 *   `.gitignore`: Standard git ignore file.
+
+## 🎓 Workshop Learning Outcomes
+
+By working through this repository and building the AI Resume Builder, you will:
+
+1. **Master AI-Assisted Development**: Learn to effectively communicate with AI tools to generate production-ready code
+2. **Understand Modern Architecture**: See how Next.js, Tailwind, and AI APIs work together in a real application
+3. **Practice Rapid Prototyping**: Experience the speed of going from idea to deployed application
+4. **Build Portfolio Projects**: Create a functional tool you can showcase and continue developing
+5. **Join a Community**: Connect with other PMs embracing AI-accelerated workflows
+
+## 🏢 About WNCP AI
+
+[WNCP AI](https://www.wncp.ai) is at the forefront of AI-accelerated product development. We help product managers, founders, and teams leverage cutting-edge AI tools to build better products faster.
+
+### Our Mission
+Transform how products are built by making AI tools accessible to everyone – not just developers. We believe the future of product management is AI-augmented, and we're here to help you get there.
+
+### What We Offer
+- **AI Tool Training**: Hands-on workshops teaching practical AI integration
+- **Rapid Prototyping Services**: From idea to MVP in days, not months
+- **AI Strategy Consulting**: Help your team adopt AI-accelerated workflows
+- **Custom AI Solutions**: Bespoke tools tailored to your product needs
+
+### Why WNCP AI?
+- **500+ PMs Trained**: We've helped hundreds of product managers master AI tools
+- **Real Results**: Our clients ship products 10x faster with AI assistance
+- **Practical Focus**: Everything we teach is immediately applicable to your work
+- **Continuous Innovation**: We stay on the cutting edge of AI product development
+
+### Success Stories
+- Product teams reducing development cycles from months to weeks
+- Solo founders building MVPs without hiring developers
+- Enterprise teams automating repetitive product tasks with AI
+- PMs landing senior roles by showcasing AI-powered portfolios
+
+## Next Steps After This Workshop
+
+1. **Complete the Resume Builder**: Follow the guides to build your own version
+2. **Customize and Deploy**: Make it your own and share with the community
+3. **Explore More AI Tools**: Visit [WNCP AI](https://www.wncp.ai) for additional resources
+4. **Join Our Community**: Connect with other AI-accelerated PMs
+5. **Book a Consultation**: Discuss how AI can transform your specific workflow
 
 ---
 
-We hope this detailed guide and the repository resources are valuable for your journey into AI-Accelerated Product Management. Happy innovating! 
+<div align="center">
+  <h3>🚀 Ready to Build Products 10x Faster?</h3>
+  <p>This workshop is your gateway to AI-accelerated product development.</p>
+  <a href="https://www.wncp.ai">
+    <img src="https://img.shields.io/badge/Learn%20More%20at%20WNCP%20AI-BD1B04?style=for-the-badge&logo=rocket&logoColor=white" alt="Learn More">
+  </a>
+  <br><br>
+  <p><strong>Join 500+ product managers</strong> who are shipping faster with AI</p>
+  <a href="https://www.wncp.ai">Visit www.wncp.ai →</a>
+</div>
