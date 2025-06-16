@@ -95,7 +95,7 @@ Single page with all functionality:
 
 **Top Section** Breastmilk Log
 - Enter time and date, which defaults to now but users can change
-- Enter breastmilk temperature
+- Enter storage type
 - Enter amount (oz/ml)
 - Confirm "Add breastmilk"
 
@@ -125,13 +125,12 @@ In the morning, her partner Ben thaws 4oz of frozen breastmilk to feed the baby 
 
 ## Success Metrics
 
-- **Time to Resume**: 90% of users generate first resume in under 2 minutes
-- **Resume Quality Score**: User-reported satisfaction with AI suggestions (>4.5/5)
-- **Mobile Completion Rate**: 80% of mobile sessions result in generated resume
-- **Return Usage**: 70% of users create multiple versions within first week
-- **Outcome Tracking**: Optional user survey on interview success (3-month follow-up)
-- **Generation Success Rate**: >95% successful AI generations
-- **URL Access Rate**: Track how often resume URLs are accessed
+- **Adoption**: 70% of users log at least 3 pumpings in the first 48 hours
+- **Alert Engagement**: 80% of expiring bottle alerts are viewed/interacted with
+- **Waste Reduction**: 50% reduction in discarded bottles (self-reported survey)
+- **Speed of Use**: 90% of logs completed in under 15 seconds
+- **Shared Accounts**: 60% of users invite a second caregiver within 1 week
+- **Low Churn**: 50% of users return weekly
 
 ## Technical Considerations
 
@@ -139,15 +138,15 @@ In the morning, her partner Ben thaws 4oz of frozen breastmilk to feed the baby 
 - **Framework**: Next.js 14 (App Router)
 - **UI Components**: Shadcn/ui with Tailwind CSS
 - **Database**: Supabase PostgreSQL with platform-specific schema
-- **AI/ML**: Google Gemini Pro (free tier)
 - **Hosting**: Vercel
 - **Analytics**: Posthog for privacy-first tracking
+- **Notifications**: OneSignal or Firebase Cloud Messaging
 
 ### Database Schema
 ```sql
--- Platform-specific schema (e.g., lovable-ai-resume-db)
-CREATE SCHEMA IF NOT EXISTS "lovable-ai-resume-db";
-SET search_path TO "lovable-ai-resume-db";
+-- Platform-specific schema (e.g., lovable-milk-db)
+CREATE SCHEMA IF NOT EXISTS "lovable-milk-db";
+SET search_path TO "lovable-milk-db";
 
 -- User profiles
 CREATE TABLE profiles (
@@ -160,16 +159,15 @@ CREATE TABLE profiles (
   UNIQUE(user_id)
 );
 
--- Generated resumes
-CREATE TABLE resumes (
+-- Breastmilk log
+CREATE TABLE milk_entries (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id uuid REFERENCES auth.users NOT NULL,
-  slug varchar(100) UNIQUE NOT NULL,
-  linkedin_text text NOT NULL,
-  job_description text NOT NULL,
-  settings jsonb NOT NULL,
-  generated_html text NOT NULL,
+  user_id uuid REFERENCES auth.users,
+  volume_oz integer,
+  storage_type text CHECK (storage_type IN ('room', 'fridge', 'freezer')),
   created_at timestamp DEFAULT now()
+  expires_at timestamp NOT NULL,
+  status text CHECK (status IN ('active', 'used', 'expired', 'discarded')),
 );
 
 -- Row Level Security
@@ -181,8 +179,8 @@ CREATE POLICY "Users manage own profiles"
   ON profiles FOR ALL
   USING (auth.uid() = user_id);
 
-CREATE POLICY "Users manage own resumes"
-  ON resumes FOR ALL
+CREATE POLICY "Users manage own milk"
+  ON milk FOR ALL
   USING (auth.uid() = user_id);
 ```
 
@@ -202,42 +200,14 @@ CREATE POLICY "Users manage own resumes"
 ## Summary & Open Questions
 
 ### Executive Summary
-AI Resume Builder addresses a critical pain point for mid-level Product Managers seeking senior roles in the competitive AI/ML industry. By leveraging Google Gemini AI to intelligently transform LinkedIn profiles into tailored resumes that emphasize both traditional PM skills and newly acquired technical competencies, we can reduce resume creation time from hours to minutes while significantly improving quality and relevance.
-
-The single-page design with modal authentication ensures users can create compelling resumes anywhere, anytime—crucial for busy professionals who discover opportunities through networking or spontaneous job postings.
-
-### Key Differentiators
-1. **AI-PM Focus**: Unlike generic resume builders, specifically optimized for PM→Senior PM in AI companies
-2. **Speed**: 2-minute turnaround vs. 2+ hours manual editing
-3. **Free AI**: Uses Google Gemini's free tier - no API costs for users
-4. **Simple Access**: No downloads - resumes hosted with permanent URLs
-5. **Privacy-First**: User controls their data with Supabase's secure infrastructure
+Save My Milk helps parents prevent wasted milk and reduce mental fatigue in the early months of a baby’s life. With real-time expiration tracking, mobile-first design, and shared caregiver access, it provides just enough functionality to be useful without becoming overwhelming. Parents can confidently feed their baby without second-guessing storage rules, forgetting last feed times, or throwing away valuable milk.
 
 ### Open Questions for Refinement
 
-1. **Monetization Strategy**
-   - Freemium with limited generations?
-   - One-time purchase ($29) vs. subscription ($9/month)?
-   - Premium features like custom domains for resume URLs?
-
-2. **AI Integration Depth**
-   - Should we auto-generate cover letters too?
-   - Include interview question preparation based on resume?
-   - Suggest LinkedIn profile optimizations?
-
-3. **Resume URL Strategy**
-   - Custom domains for premium users?
-   - Analytics on who views resumes?
-   - Expiration dates or permanent hosting?
-
-4. **Success Tracking**
-   - How do we measure actual job placement success?
-   - Should we build in feedback loops from recruiters?
-   - Community features for peer review?
-
-5. **Competitive Moat**
-   - How do we prevent copying of our AI prompts?
-   - Should we build proprietary PM skills taxonomy?
-   - Partner with PM communities for distribution?
+1. Should we offer QR code stickers to help autogenerate logs?
+2. Will users prefer SMS or push notifications for reminders?
+3. Should we integrate with baby feeding apps or offer our own log?
+4. Monetization: Should we promote lactation consultants as ad revenue?
+5. AI-features: Auto-suggest ideal feeding times or bottle usage order? OR Predict baby’s preferred volumes or patterns?
 
 These questions will guide our iteration strategy post-MVP, ensuring we build what users truly need rather than what we assume they want.
