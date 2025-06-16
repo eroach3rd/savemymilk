@@ -1,46 +1,37 @@
-# AI Resume Builder - Product Requirements Document
+# Save My Milk - Product Requirements Document
 
 ## TL;DR
 
-AI Resume Builder is a streamlined single-page web application that transforms LinkedIn profiles into tailored, ATS-optimized resumes specifically designed for Product Managers seeking senior roles at AI/ML companies. Built with Next.js and Shadcn/ui, it leverages Google Gemini AI (free tier) to bridge the gap between traditional PM experience and newly acquired AI skills, enabling users to create compelling resumes in under 2 minutes.
+Save My Milk is a mobile-first application that helps breastfeeding parents manage breast milk inventory, avoid spoilage, and reduce the mental burden of tracking expressed milk. Inspired by the real-life exhaustion of triple feeding and manual storage tracking, the app digitizes the process of logging, monitoring, and getting reminders for stored breast milk. It leverages smart automation, reminders, and community resources to support healthier and more sustainable feeding routines.
 
 ## Goals
 
-- **Solve the core need** of mid-level PMs struggling to showcase AI/ML competencies alongside traditional product skills when applying for senior positions
-- **Delight users** by intelligently highlighting relevant experience and newly acquired skills that match specific job requirements
-- **Enable rapid iteration** through mobile-first design that allows resume creation during networking events or commutes
-- **Build trust** through secure, privacy-first architecture using Supabase for data persistence
-- **Create a polished experience** with modern UI components and smooth interactions
-- **Focus on outcome quality** over feature quantity—better to nail the core resume generation than add peripheral features
+- **Track breast milk inventory** with minimal friction, supporting entry via manual form or QR scan
+- **Prevent spoilage** through intelligent alerts based on the 5-5-5 rule (Room temp: 5 hours, Fridge: 5 days, Freezer: 5 months)
+- **Automate repetitive actions** so parents don’t have to remember dates or manually record time and volume
+- **Connect parents** with lactation consultants, donation centers, and mom groups for support
+- **Encourage sustainability** by providing tips for reusing expired milk (e.g., baths, plants)
 
 ## Non-Goals
 
-- Will not become a full ATS or job application tracking system
-- Does not include interview preparation or salary negotiation features in MVP
-- Will not support team/enterprise features or shared resume templates initially
-- Does not automate job applications or integrate with job boards
-- Will not process resumes for non-PM roles in the first release
+- Will not replace feeding trackers (e.g., Baby Tracker or Pump Log)
+- Will not include advanced medical or nutritional analytics
+- Will not support hardware integrations (e.g., Bluetooth pumps) in MVP
+- Will not track bottle feeding or baby consumption logs in MVP
+- Will not include in-app purchasing or marketplace in MVP
 
 ## User Stories
 
-### Primary Persona: Aspiring Senior PM
+### Primary Persona: New Breastfeeding Parent
+-As a new parent, I want to quickly record milk pumping details so I can spend more time caring for my baby
+- As a new parent, I want to get alerts before milk spoils so I don’t waste milk I worked hard to pump
+- As a new parent, I want to scan a QR code on milk bags to pre-fill data and avoid manual entry
+- As a new parent, I want to see my milk inventory visually (calendar or list) so I can plan usage
 
-- **As an aspiring senior PM**, I want to quickly transform my LinkedIn profile into a resume that highlights my AI/ML side projects, so I can compete for senior roles at AI companies
-- **As an aspiring senior PM**, I want the tool to identify and emphasize transferable skills from my current role, so I don't appear underqualified for senior positions
-- **As an aspiring senior PM**, I want to create multiple resume versions on my phone, so I can apply immediately when I find relevant openings
-- **As an aspiring senior PM**, I want AI to suggest which experiences to emphasize based on the job description, so my resume passes both ATS and human screening
-
-### Persona: Career Switcher PM
-
-- **As a PM transitioning to AI**, I want to highlight my recent certifications and bootcamps prominently, so they don't get buried under years of non-AI experience
-- **As a career switcher**, I want the AI to reframe my past experience through an AI/ML lens, so hiring managers see the relevance
-- **As a career switcher**, I need mobile access to update my resume after networking conversations, so I can incorporate new insights immediately
-
-### Persona: Technical PM
-
-- **As a technical PM**, I want granular control over how technical my resume appears, so I can calibrate for different company cultures
-- **As a technical PM**, I want my GitHub contributions and side projects automatically incorporated, so my hands-on experience is visible
-- **As a technical PM**, I need the AI to balance technical depth with product leadership narrative, so I'm not pigeonholed as "just technical"
+### Persona: Sustainable & Community-Oriented Parent
+- As a parent with surplus milk, I want to find donation centers nearby so it doesn’t go to waste
+- As a parent looking for support, I want to find Facebook mom groups and lactation consultants
+- As a resourceful parent, I want to learn how to repurpose expired milk in safe and useful ways
 
 ## Functional Requirements
 
