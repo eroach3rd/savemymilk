@@ -42,7 +42,7 @@ Save My Milk is a mobile-first application that helps breastfeeding parents mana
 - **Auto-calculate expiration** based on temperature and 5-5-5 rule (e.g. 5hr for room temp breastmilk)
 - **Mark a bottle as used/finished**
 
-### Authentication (Priority: MVP)
+### Authentication (Priority: Post-MVP)
 - **Simple signup/login** with email or number and password only
 - **Modal-based auth** that doesn't interrupt the flow
 - **No email verification** to reduce friction
@@ -87,7 +87,7 @@ Save My Milk is a mobile-first application that helps breastfeeding parents mana
 ### Entry Flow
 1. User lands on a lightweight homepage explaining the app
 2. Clicks "Start Tracking" to open signup modal
-3. Enters email + password → enters main app
+3. Enters email + password → enters main app (Post-MVP)
 4. Immediately sees the main application page
 
 ### Main Application Page
@@ -115,7 +115,7 @@ Single page with all functionality:
 - Push/email/SMS reminders (select one for MVP)
 
 ### Bottom Nav
-- Tabs: [Home], [Reminders], [Inventory], [Settings]
+- Tabs: [Track], [Reminders], [Inventory], [Home]
 
 ## Narrative
 
