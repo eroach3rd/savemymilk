@@ -49,7 +49,7 @@ Save My Milk is a mobile-first application that helps breastfeeding parents mana
 - **Secure session management** via Supabase
 - **Platform-specific schema** isolation (e.g., `lovable-milk-db`)
 
-### Smart Reminders (Priority: MVP)
+### Smart Reminders (Priority: Post-MVP)
 - **Expiration Notification** 
     - Room-temp milk approaching 5-hour limit
     - Fridge milk approaching 5-day limit
