@@ -27,24 +27,21 @@ Create a single-page baby bottle tracker with:
 
 Top Section
 Logo: Save My Milk (attached)
-
-Quick Add Bottle button
-
-Add Feed shortcut
+Navigation to Log, Inventory, 
 
 Main Layout
-1. Active Bottles Grid
+1. Breastmilk Log:
+- Enter time and date, which defaults to now but users can change
+- Enter storage type
+- Enter amount (oz/ml)
+- Confirm "Add breastmilk"
+
+2. Inventory Grid
 Card per bottle with:
-
-Type (breastmilk fresh, thawed, formula)
-
-Volume left
-
-Storage location (room, fridge, freezer)
-
-Time left before expiration (auto-color: green/yellow/red)
-
-Actions: Fed ✅ | Discard ❌
+- Volume left
+- Storage location (room, fridge, freezer)
+- Time left before expiration (auto-color: green/yellow/red)
+- Actions: Fed ✅ | Discard ❌
 
 2. Feed Log
 Reverse timeline of feedings
