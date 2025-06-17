@@ -160,7 +160,7 @@ CREATE TABLE profiles (
 );
 
 -- Breastmilk log
-CREATE TABLE milk_entries (
+CREATE TABLE milk_log (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id uuid REFERENCES auth.users,
   volume_oz integer,
