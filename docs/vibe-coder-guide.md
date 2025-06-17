@@ -1,19 +1,23 @@
 # AI Resume Builder - Vibe Coded Execution Document
 
-## The Vibe Coding Mindset 🚀
+## The Vibe 🚀
 
-You're building the world's simplest resume builder. No signup, no login, no BS. Just paste, click, and get a killer resume. Think "Google homepage but for resumes" - that level of simplicity.
+You're building the world’s fastest way to track pumped breast milk all on one mobile-friendly page. Think: "Google Calendar for baby bottles", minus the clutter. Everything essential is visible at a glance.
 
-**Your superpower**: Building something so simple your grandma could use it, yet so powerful it lands jobs at OpenAI.
+Your job?
+Take the guesswork out of remembering when breast milk will spoil for parents who don't have the mental capacity. 
 
 ## Pre-Flight Checklist (3 minutes) ✅
 
-1. **Platform Ready**: Open lovable.dev, bolt.new, or v0
-2. **Have a Gemini API Key**: Get one free at [Google AI Studio](https://makersuite.google.com/app/apikey)
-3. **Sample Content**:
-   - Any LinkedIn profile text
-   - A real PM job description
-4. **Mindset**: We're building ONE page. Everything visible. No surprises.
+1. Platform Ready: bolt.new, v0.dev, or lovable.dev
+2. Backend Supabase Project: Set up with bottles, feedings, and users tables
+3. Gemini API Key optional
+4. Mobile-first mindset: 80% of users are holding a baby in one hand
+
+Think:
+- One screen
+- One hand
+- Real-time status of milk inventory
 
 ## The 20-Minute Sprint: Two Simple Prompts 🎯
 
