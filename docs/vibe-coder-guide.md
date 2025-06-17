@@ -110,30 +110,65 @@ Storage: Supabase table calls via RLS-protected API
 ```
 ### Backend
 ```
-Framework: Next.js 14 (App Router)
-UI: Shadcn/ui + Tailwind
-Storage: Supabase table calls via RLS-protected API
+-- Platform-specific schema (e.g., lovable-milk-db)
+CREATE SCHEMA IF NOT EXISTS "lovable-milk-db";
+SET search_path TO "lovable-milk-db";
+
+-- User profiles
+CREATE TABLE profiles (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES auth.users NOT NULL,
+  gemini_api_key text ENCRYPTED,
+  custom_prompt text,
+  created_at timestamp DEFAULT now(),
+  updated_at timestamp DEFAULT now(),
+  UNIQUE(user_id)
+);
+
+-- Breastmilk log
+CREATE TABLE milk_log (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES auth.users,
+  volume_oz integer,
+  storage_type text CHECK (storage_type IN ('room', 'fridge', 'freezer')),
+  created_at timestamp DEFAULT now()
+  expires_at timestamp NOT NULL,
+  status text CHECK (status IN ('active', 'used', 'expired', 'discarded')),
+);
+
+-- Row Level Security
+ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE resumes ENABLE ROW LEVEL SECURITY;
+
+-- RLS Policies
+CREATE POLICY "Users manage own profiles"
+  ON profiles FOR ALL
+  USING (auth.uid() = user_id);
+
+CREATE POLICY "Users manage own milk"
+  ON milk FOR ALL
+  USING (auth.uid() = user_id);
 ```
 
 ## The Philosophy 🌟
 
-This tool should feel like magic:
-1. Paste your stuff
-2. Click the glowing button
-3. Get a perfect resume
-4. Copy and go
+This is not just a tracker — it’s peace of mind.
 
-No signup fatigue. No data harvesting. No subscription popups. Just a tool that works.
+Parents don’t need a dashboard. They need certainty:
+- Is this milk still good?
+- Did someone already thaw milk?
+- Can I go to sleep now?
+
+You’re not building a tracker.
+You’re building clarity in chaos.
 
 ## Final Check ⭐
 
 Before you're done:
-- ✅ Can generate a resume in under 30 seconds?
-- ✅ API key persists between refreshes?
-- ✅ Copy button works perfectly?
+- ✅ Can add a bottle and see it appear instantly?
+- ✅ Can mark a bottle as used or discarded?
+- ✅ Do warning or expired bottles update color/label automatically?
 - ✅ Looks good on mobile?
-- ✅ No console errors?
+- ✅ Is the inventory log usable and fast to scroll?
 
 ---
-
-*Ready? Open your platform, paste Prompt 1, and let's build the world's simplest resume builder! 🚀*
