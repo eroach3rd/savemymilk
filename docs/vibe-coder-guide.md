@@ -43,123 +43,76 @@ Card per bottle with:
 - Time left before expiration (auto-color: green/yellow/red)
 - Actions: Fed ✅ | Discard ❌
 
-2. Feed Log
-Reverse timeline of feedings
-
-Show bottle used, volume, and time
-
-Optional: caregiver name
-
-3. Add Bottle Modal (or inline form)
-Volume (ml or oz)
-
-Milk type
-
-Storage location
-
-Time created (defaults to now)
-
-Auto-calculate expiration time
+3. Reminders
+- Count of Room-temp milk within 1-hour of expiration 
+- Count of Fridge milk within 1-day of expiration
+- Count of Frozen milk within 1-week of expiration
+- User can click any of the counts to see a list view of inventory
 ```
 
 ### Prompt 2: Polish & Functionality (5 minutes)
 
 ```
-Now make the resume generation actually work:
+Make it work end-to-end with Supabase backend:
 
-1. Install Google's Generative AI client library
-2. When Generate is clicked:
-   - Get API key from localStorage (prompt if missing)
-   - Build a prompt that includes profile, job description, and settings
-   - Call Gemini Pro API directly from the browser
-   - Display formatted output in the resume section
+1. Breaskmilk log
+- milk_log table: create, update, mark as used/discarded
+- auto-calcuate expiration date and time based on 5-5-5 rule
+- auto-expire bottles via a time comparison (in UI)
 
-3. The AI prompt should instruct Gemini to:
-   - Return resume in markdown format
-   - Use # for name, ## for sections, ### for job titles
-   - Include Summary, Experience, Education, and Skills sections
-   - Optimize for ATS and the specific role
+Show countdown to expiration in inventory view
 
-4. Parse the markdown response and display it with proper formatting:
-   - Convert markdown to HTML
-   - Style it to look like a professional resume
-   - Georgia font for resume content
+2. Reminders
+- calculate count from milk_log table
 
-5. Make the Copy button work:
-   - Copy the markdown text (not HTML)
-   - Show "Copied!" feedback for 2 seconds
+3. Visual Feedback
+Bottles Dark teal when safe
+Bottles red when expired
+Bottles yellow for soon expiring
 
-6. Add error handling:
-   - Show alert if API key is missing
-   - Show alert if generation fails
-   - Loading state while generating
+Check mark when bottle is added
+Toast baby bottles when bottle is used
 
-Remember: NO backend, NO authentication, NO database. Everything in the browser!
+6. Mobile UI Polish
+Tailwind: rounded-2xl, shadow-md, text-sm, bg-slate-50
+
+One-tap interactions
+
+Swipe gestures (if native shell added later)
 ```
 
-## The Vibe Check ✨
+Save My Milk Design System 🎨
+Colors:
+- Primary: #a8dcd1 (teal)
+- Safe: #165e6a (dark teal)
+- Warning: #ffeb9a (yellow)
+- Expired: ##ffaeac (red)
+- Background: #fff8eb (tan)
 
-Your app should feel:
-- **Instant**: No waiting, no loading screens (except during generation)
-- **Obvious**: Everything visible, no hidden menus
-- **Private**: Nothing leaves the browser except API calls to Gemini
-- **Professional**: Clean design that makes users trust it
+Fonts: Inter or system default
 
-## Quick Fixes 🔧
-
-### "The API key isn't saving"
-```
-Make sure to use localStorage.setItem('gemini_api_key', apiKey) when the user enters it. Check localStorage in DevTools to verify it's there.
-```
-
-### "The resume looks ugly"
-```
-Add proper CSS for the resume output. Use Georgia font, proper spacing, and format headers correctly. The resume should look professional with clear sections.
-```
-
-### "Generate button doesn't look special"
-```
-The generate button needs to stand out. Use this CSS:
-background: #BD1B04;
-box-shadow: 0 0 20px rgba(189, 27, 4, 0.3);
-transition: all 0.3s;
-
-On hover:
-box-shadow: 0 0 30px rgba(189, 27, 4, 0.5);
-transform: translateY(-2px);
-```
-
-### "Markdown isn't formatting"
-```
-Install a markdown parser like 'marked' or write a simple converter. Make sure headers, bullets, and paragraphs are properly styled in the output.
-```
-
-## Pro Tips 💡
-
-- **Start with static UI**: Get everything looking right before adding functionality
-- **Test with your own API key**: Make sure the Gemini integration works
-- **Keep it simple**: No fancy features, just the essentials
-- **Use Tailwind classes**: Faster than custom CSS
-
-## The Single-Page Magic 🎨
+Cards: rounded-xl, shadow-sm, hover:scale-105
 
 Everything on ONE page:
 - No routing
 - No modals
 - No popups
 - No authentication
-- No database
 
 Just scroll down and everything is there. Like a Google Form but prettier.
 
 ## Code Structure 💻
-
-Keep it flat and simple:
+### Frontend
 ```
-- One main component with all the state
-- Helper functions for API calls
-- Simple localStorage utilities
-- That's it!
+Framework: Next.js 14 (App Router)
+UI: Shadcn/ui + Tailwind
+Storage: Supabase table calls via RLS-protected API
+```
+### Backend
+```
+Framework: Next.js 14 (App Router)
+UI: Shadcn/ui + Tailwind
+Storage: Supabase table calls via RLS-protected API
 ```
 
 ## The Philosophy 🌟
