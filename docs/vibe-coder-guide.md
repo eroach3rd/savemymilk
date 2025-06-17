@@ -10,7 +10,7 @@ Take the guesswork out of remembering when breast milk will spoil for parents wh
 ## Pre-Flight Checklist (3 minutes) ✅
 
 1. Platform Ready: bolt.new, v0.dev, or lovable.dev
-2. Backend Supabase Project: Set up with bottles, feedings, and users tables
+2. Backend Supabase Project: Set up with milk_log, and profiles tables
 3. Gemini API Key optional
 4. Mobile-first mindset: 80% of users are holding a baby in one hand
 
