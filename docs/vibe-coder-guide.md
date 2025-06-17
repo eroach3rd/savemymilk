@@ -1,6 +1,6 @@
 # AI Resume Builder - Vibe Coded Execution Document
 
-## The Vibe 🚀
+## The Vibe 🧠
 
 You're building the world’s fastest way to track pumped breast milk all on one mobile-friendly page. Think: "Google Calendar for baby bottles", minus the clutter. Everything essential is visible at a glance.
 
@@ -21,35 +21,48 @@ Think:
 
 ## The 20-Minute Sprint: Two Simple Prompts 🎯
 
-### Prompt 1: Complete Application (15 minutes)
-
+### Prompt 1: Core Bottle Tracker (15 minutes)
 ```
-Create a single-page AI Resume Builder with no authentication or backend. Everything happens in the browser.
+Create a single-page baby bottle tracker with:
 
-Layout from top to bottom:
-1. Header with "WN^CP" logo (black text with red dash) on the left and a decorative user icon on the right
-2. "LinkedIn Profile" section - large textarea (6000 char limit) with character count
-3. "Job Description" section - large textarea (6000 char limit) with character count  
-4. "Customization Settings" section with a 2x2 grid of dropdowns:
-   - Experience Level: 4-6 years, 7-9 years, 10+ years
-   - Technical Depth: Low, Medium, High
-   - Resume Style: Modern, Traditional, Technical, Creative
-   - Role Focus: AI/ML PM, Technical PM, Growth PM, Platform PM
-5. Big red "Generate AI-Optimized Resume" button with a glow effect
-6. Resume output section (hidden until generation) with:
-   - White background box with border
-   - "Copy Resume" button in the corner
-   - Formatted resume display
-7. Settings section at the bottom with:
-   - Gemini API Key input (password field)
-   - Model selector dropdown
-   - Save Settings button
+Top Section
+Logo: Save My Milk (attached)
 
-Use localStorage to persist the API key and settings. No database, no auth, no backend.
+Quick Add Bottle button
 
-Style: Clean white and gray design with red (#BD1B04) accents. The generate button should have a red glow: box-shadow: 0 0 20px rgba(189, 27, 4, 0.3);
+Add Feed shortcut
 
-Make everything work client-side using the Google Generative AI library.
+Main Layout
+1. Active Bottles Grid
+Card per bottle with:
+
+Type (breastmilk fresh, thawed, formula)
+
+Volume left
+
+Storage location (room, fridge, freezer)
+
+Time left before expiration (auto-color: green/yellow/red)
+
+Actions: Fed ✅ | Discard ❌
+
+2. Feed Log
+Reverse timeline of feedings
+
+Show bottle used, volume, and time
+
+Optional: caregiver name
+
+3. Add Bottle Modal (or inline form)
+Volume (ml or oz)
+
+Milk type
+
+Storage location
+
+Time created (defaults to now)
+
+Auto-calculate expiration time
 ```
 
 ### Prompt 2: Polish & Functionality (5 minutes)
